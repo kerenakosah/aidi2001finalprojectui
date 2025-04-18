@@ -1,0 +1,341 @@
+.display {
+  /** TODO(crbug.com/985623): Remove these hard-coded audio tag size.
+   * This fixed audio tag width/height leads to fail the wpt tests below.
+   * crbug.com/955170 external/wpt/css/css-contain/contain-size-replaced-003a.html
+   * crbug.com/955163 external/wpt/css/css-contain/contain-size-replaced-003b.html
+   * crbug.com/955163 external/wpt/css/css-contain/contain-size-replaced-003c.html
+   */
+  /* heading elements */
+  /* for tables without table section elements (can happen with XHTML or dynamically created tables) */
+  /* When the td/th are inside a table (the normal case), the padding is taken
+     care of by HTMLTableCellElement::AdditionalPresentationAttributeStyle(). */
+  /* lists */
+  /* HTML5 ruby elements */
+  /* other elements */
+  /*
+   * https://html.spec.whatwg.org/C/#the-details-and-summary-elements
+   * The specification doesn't have |details >| and |:first-of-type|.
+   * We add them because:
+   *   - We had provided |summary { display: block }| for a long time,
+   *     there are sites using <summary> without details, and they
+   *     expect that <summary> is not a list-item.
+   *   - Firefox does so.
+   */
+}
+.display p {
+  display: block;
+  margin-block-start: 1__qem;
+  margin-block-end: 1__qem;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+.display div {
+  display: block;
+}
+.display article, .display aside, .display footer, .display header, .display hgroup, .display main, .display nav, .display search, .display section {
+  display: block;
+}
+.display marquee {
+  display: inline-block;
+  width: -webkit-fill-available;
+}
+.display address {
+  display: block;
+}
+.display blockquote {
+  display: block;
+  margin-block-start: 1__qem;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+.display figcaption {
+  display: block;
+}
+.display figure {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+.display q {
+  display: inline;
+}
+.display q:before {
+  content: open-quote;
+}
+.display q:after {
+  content: close-quote;
+}
+.display center {
+  display: block;
+  /* special centering to be able to emulate the html4/netscape behaviour */
+  text-align: -webkit-center;
+}
+.display hr {
+  display: block;
+  overflow: hidden;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+.display map {
+  display: inline;
+}
+.display video {
+  object-fit: contain;
+}
+.display video:-webkit-full-page-media {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+  max-width: 100%;
+}
+.display audio:not([controls]) {
+  display: none !important;
+}
+.display audio {
+  width: 300px;
+  height: 54px;
+}
+.display video, .display canvas, .display img {
+  overflow: clip;
+  overflow-clip-margin: content-box;
+}
+.display iframe, .display embed, .display object, .display fencedframe {
+  overflow: clip !important;
+  overflow-clip-margin: content-box !important;
+}
+.display h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67__qem;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+}
+.display :-webkit-any(article, aside, nav, section) h1 {
+  font-size: 1.5em;
+  margin-block-start: 0.83__qem;
+  margin-block-end: 0.83em;
+}
+.display :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) h1 {
+  font-size: 1.17em;
+  margin-block-start: 1__qem;
+  margin-block-end: 1em;
+}
+.display :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) h1 {
+  font-size: 1em;
+  margin-block-start: 1.33__qem;
+  margin-block-end: 1.33em;
+}
+.display :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) h1 {
+  font-size: 0.83em;
+  margin-block-start: 1.67__qem;
+  margin-block-end: 1.67em;
+}
+.display :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) :-webkit-any(article, aside, nav, section) h1 {
+  font-size: 0.67em;
+  margin-block-start: 2.33__qem;
+  margin-block-end: 2.33em;
+}
+.display h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83__qem;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+}
+.display h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1__qem;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+}
+.display h4 {
+  display: block;
+  margin-block-start: 1.33__qem;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+}
+.display h5 {
+  display: block;
+  font-size: 0.83em;
+  margin-block-start: 1.67__qem;
+  margin-block-end: 1.67em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+}
+.display h6 {
+  display: block;
+  font-size: 0.67em;
+  margin-block-start: 2.33__qem;
+  margin-block-end: 2.33em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
+}
+.display table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+    font-variant: tabular-nums;
+}
+.display thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.display tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.display tfoot {
+  display: table-footer-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.display table > tr {
+  vertical-align: middle;
+}
+.display col {
+  display: table-column;
+}
+.display colgroup {
+  display: table-column-group;
+}
+.display tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+.display td, .display th {
+  padding: 6px 13px;
+  border: 1px solid black;
+}
+.display td:not(table td),
+.display th:not(table th) {
+  padding: 1px;
+}
+.display th {
+  font-weight: bold;
+  text-align: -internal-center;
+}
+.display caption {
+  display: table-caption;
+  text-align: -webkit-center;
+}
+.display ul, .display menu, .display dir {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1__qem;
+  margin-block-end: 1em;
+  padding-inline-start: 40px;
+}
+.display ol {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 1__qem;
+  margin-block-end: 1em;
+  padding-inline-start: 40px;
+}
+.display li {
+  display: list-item;
+  /* TODO(crbug.com/40774317, crbug.com/40787216): We should use
+     text-align: match-parent once it is supported. */
+  text-align: -webkit-match-parent;
+}
+.display dd {
+  display: block;
+  margin-inline-start: 40px;
+}
+.display dl {
+  display: block;
+  margin-block-start: 1__qem;
+  margin-block-end: 1em;
+}
+@supports not blink-feature(CorrectStylesForLists) {
+  .display dl {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+  }
+}
+.display dt {
+  display: block;
+}
+.display a:-webkit-any-link {
+    background-color: transparent;
+    color: #4493f8;
+    text-decoration: none;
+    cursor: pointer;
+}
+.display a:-webkit-any-link:active {
+  color: -webkit-activelink;
+}
+.display a:-webkit-any-link:read-write {
+  cursor: text;
+}
+.display a:-webkit-any-link:focus-visible {
+  outline-offset: 1px;
+}
+.display ruby, .display rt {
+  text-indent: 0; /* blocks used for ruby rendering should not trigger this */
+}
+.display ruby {
+  display: ruby;
+}
+.display rt {
+  line-height: normal;
+  text-emphasis: none;
+}
+.display ruby > rt {
+  display: ruby-text;
+  font-size: 50%;
+  text-align: start;
+}
+.display frameset, .display frame {
+  display: block;
+}
+.display frameset {
+  border-color: inherit;
+}
+.display iframe {
+  border: 2px inset;
+}
+.display fencedframe {
+  border: 2px inset;
+  object-fit: contain !important;
+  object-position: 50% 50% !important;
+}
+.display details {
+  display: block;
+}
+.display summary {
+  display: block;
+}
+.display details > summary:first-of-type {
+  display: list-item;
+  counter-increment: list-item 0;
+  list-style: disclosure-closed inside;
+}
