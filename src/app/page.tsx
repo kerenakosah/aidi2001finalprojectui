@@ -1,14 +1,36 @@
 'use client';
 
-import { useState } from 'react'
+import { useState } from 'react';
+import './tailwind.css';
+import Display from './display.tsx';
 
 export default function Home() {
+    const test_markdown = `
+# A demo of react-markdown
+
+react-markdown is a markdown component for React.
+
+👉 Changes are re-rendered as you type.
+
+👈 Try writing some markdown on the left.
+
+## Overview
+
+* Follows [CommonMark](https://commonmark.org)
+* Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
+* Renders actual React elements instead of using dangerouslySetInnerHTML
+* Lets you define your own components (to render MyHeading instead of 'h1')
+* Has a lot of plugins
+
+## Contents
+    `;
     const [question, setQuestion] = useState('')
     const [answer, setAnswer] = useState('')
     const [loading, setLoading] = useState(false)
 
     const LOCAL_SERVER = 'http://localhost:8000';
-    const SERVER = 'http://3.148.220.10:8000';
+
+     const SERVER = 'http://3.148.220.10:8000';
 
     const BASE = SERVER;
     const apiCall = async (url,method,jsonData) => {
@@ -47,7 +69,7 @@ export default function Home() {
 
     return (
         <main
-        className="min-h-screen bg-cover bg-center flex flex-col items-start justify-start py-10 px-4 border-black"
+        className="min-h-screen bg-cover bg-center flex flex-col items-start justify-start py-10 px-4 border-black w-full"
         style={{
           backgroundImage: "url('canada.jpg')",
           backgroundRepeat: 'no-repeat',
@@ -76,35 +98,40 @@ export default function Home() {
                 {loading ? 'Fetching...' : 'Get Answer'}
               </button>
             </form>
-
-
           </div>
-          <div
-            className = "justify-center"
-          >
-            {/* Loading Dots */}
-            {loading && (
-              <div className="flex justify-center align-center mt-4 border-black">
-                <span className="animate-bounce delay-0 text-red-600 text-2xl mx-1">.</span>
-                <span className="animate-bounce delay-200 text-red-600 text-2xl mx-1">.</span>
-                <span className="animate-bounce delay-400 text-red-600 text-2xl mx-1">.</span>
+
+          { (loading||answer) && (
+              <div className="flex flex-col justify-between align-center m-4  bg-white p-2 rounded-md shadow border border-red-200 mx-auto duration-700 w-fit ">
+                {/* Loading Dots */}
+                {loading && (
+                    <div className="flex flex-row justify-center">
+                        <span className="animate-bounce delay-0 text-red-600 text-2xl mx-1">.</span>
+                        <span className="animate-bounce delay-200 text-red-600 text-2xl mx-1">.</span>
+                        <span className="animate-bounce delay-400 text-red-600 text-2xl mx-1">.</span>
+                    </div>
+                )}
+                {
+                    /* Answer */
+                }
+                {answer && (
+                    <>
+                        <h2 className="text-lg font-semibold mb-2 text-red-700">Answer:</h2>
+                        
+                        <div className="mx-auto p-10">
+                        <Display content={answer}/>
+                        </div>
+
+                        <button
+                        className="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition"
+                        disabled={loading}
+                        onClick = { () => { setAnswer(''); setQuestion('') }}
+                        > 
+                            new question 
+                        </button>
+                    </>
+                )}
               </div>
-            )}
-            {/* Answer */}
-            {answer && (
-              <div className="mt-6 bg-white p-4 rounded-md shadow border border-red-200">
-                <h2 className="text-lg font-semibold mb-2 text-red-700">Answer:</h2>
-                <p className="text-gray-800 whitespace-pre-wrap">{answer}</p>
-                <button
-                className="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition"
-                disabled={loading}
-                onClick = { () => { setAnswer(''); setQuestion('') }}
-                > 
-                    new question 
-                </button>
-              </div>
-            )}
-          </div>
+          )}
           
         </main>
     )
