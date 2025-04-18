@@ -101,7 +101,7 @@ react-markdown is a markdown component for React.
           </div>
 
           { (loading||answer) && (
-              <div className="flex flex-col justify-between align-center m-4  bg-white p-2 rounded-md shadow border border-red-200 mx-auto duration-700 w-fit ">
+              <div className="flex flex-col justify-between align-center m-4  bg-white p-2 rounded-md shadow border border-red-200 mx-auto duration-700 w-full overflow-x-auto">
                 {/* Loading Dots */}
                 {loading && (
                     <div className="flex flex-row justify-center">
