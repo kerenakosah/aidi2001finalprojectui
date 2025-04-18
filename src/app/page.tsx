@@ -8,8 +8,9 @@ export default function Home() {
     const [loading, setLoading] = useState(false)
 
     const LOCAL_SERVER = 'http://localhost:8000';
+    const SERVER = 'http://3.148.220.10:8000';
 
-    const BASE = LOCAL_SERVER;
+    const BASE = SERVER;
     const apiCall = async (url,method,jsonData) => {
         console.log('postCall to :',url,method,jsonData);
         const options = {
